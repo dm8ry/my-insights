@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dima - Data Digest</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  
+  <script type="text/javascript" src="assets/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>  
+	
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    
+	  google.charts.load('current', {'packages':['corechart', 'line', 'bar', 'gauge']});
+	  
+	  google.charts.setOnLoadCallback(drawChart);		
+ 
+	  function drawChart() {
+		
+		
+		/// 0 -- registrations recent hours (sql_0)
+		
+        var data0 = google.visualization.arrayToDataTable([
+          ['Hour', 'Regs #', {type: 'string', role:'annotation'}],
+		  ['16',6,6], ['17',11,11], ['18',7,7], ['19',8,8], ['20',10,10], ['21',5,5], ['22',10,10], ['23',4,4], ['00',5,5], ['01',8,8], ['02',5,5], ['03',5,5], ['04',4,4], ['05',9,9], ['06',7,7], ['07',7,7], ['08',12,12], ['09',14,14], ['10',9,9], ['11',9,9], ['12',6,6], ['13',10,10], ['14',14,14], ['15',11,11], ['16',14,14],         ]);	
+	   
+        var options0 = {
+          title: 'Regs # recent Hours',
+          hAxis: {title: 'Hours',  titleTextStyle: {color: '#e34352'}},
+          vAxis: {minValue: 0},
+		  colors: ['#e34352']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart0 = new google.visualization.AreaChart(document.getElementById('chart_div0'));
+		chart0.draw(data0, options0);
+		
+		
+		/// 1 -- registrations last 7 days (sql_1)
+		
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Regs #', {type: 'string', role:'annotation'}],
+		  ['20160606',307,307], ['20160607',320,320], ['20160608',250,250], ['20160609',239,239], ['20160610',217,217], ['20160611',174,174], ['20160612',156,156], ['20160613',149,149],         ]);	
+	   
+        var options = {
+          title: 'Regs # recent Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+		chart.draw(data, options);
+		
+		//// 2 -- registrations yearly
+		
+        var data2 = google.visualization.arrayToDataTable([
+          ['Year', 'Regs #', {type: 'string', role:'annotation'}],
+		  ['2011',400,400], ['2012',4813,4813], ['2013',4706,4706], ['2014',7986,7986], ['2015',39228,39228], ['2016',59076,59076],         ]);	
+
+		var options2 = {
+          title: 'Regs # Yearly',
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}},          
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+        chart2.draw(data2, options2);	
+		
+		
+		//// 3 -- registrations monthly
+		
+        var data3 = google.visualization.arrayToDataTable([
+          ['Month', 'Regs #', {type: 'string', role:'annotation'}],
+		  ['10',4798,4798], ['11',5875,5875], ['12',11714,11714], ['01',15775,15775], ['02',13318,13318], ['03',11343,11343], ['04',8907,8907], ['05',6731,6731], ['06',3002,3002],         ]);	
+
+		var options3 = {
+          title: 'Regs # Montly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div3'));
+        chart3.draw(data3, options3);			
+		
+	
+
+		//// 4 -- registrations weekly
+		
+        var data4 = google.visualization.arrayToDataTable([
+          ['Week', 'Regs #', {type: 'string', role:'annotation'}],
+		  ['16',2494,2494], ['17',2251,2251], ['18',1602,1602], ['19',1618,1618], ['20',1549,1549], ['21',1320,1320], ['22',1648,1648], ['23',1663,1663], ['24',149,149],         ]);	
+
+		var options4 = {
+          title: 'Regs # Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 		  
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']		 
+        };		
+		
+		var chart4= new google.visualization.ColumnChart(document.getElementById('chart_div4'));
+        chart4.draw(data4, options4);
+		
+		
+		
+		
+		
+		//// 5 -- top 5 countries registrations # yearly
+		
+        var data5 = google.visualization.arrayToDataTable([
+          ['Country', 'Regs #'],
+		  ['France',13083], ['Italy',5338], ['Spain',4883], ['United Kingdo',4668],         ]);	
+
+		var options5 = {
+          title: 'Top Countries Year Regs#',  
+		  hAxis: {title: 'Country'}, 		           
+		  is3D: true,
+		  pieSliceText: 'value'
+        };		
+		
+		var chart5= new google.visualization.PieChart(document.getElementById('chart_div5'));
+        chart5.draw(data5, options5);		
+		
+		//// 6 -- top 6 countries registrations # monthly
+		
+        var data6 = google.visualization.arrayToDataTable([
+          ['Country', 'Regs #'],
+		  ['Germany',683], ['United Kingdo',521], ['United States',498], ['Russia',387], ['Italy',383], ['Spain',297],         ]);	
+
+		var options6 = {
+          title: 'Top Countries Month Regs#',  
+		  hAxis: {title: 'Country'}, 		           
+		  is3D: true,
+		  pieSliceText: 'value'
+        };		
+		
+		var chart6= new google.visualization.PieChart(document.getElementById('chart_div6'));
+        chart6.draw(data6, options6);		
+		
+		//// 7 -- top 6 countries registrations # weekly
+		
+        var data7 = google.visualization.arrayToDataTable([
+          ['Country', 'Regs #'],
+		  ['Germany',388], ['United Kingdo',136], ['United States',123], ['Russia',97], ['Italy',82], ['South Africa',67],         ]);	
+
+		var options7 = {
+          title: 'Top Countries Week Regs#',  
+		  hAxis: {title: 'Country'}, 		           
+		  is3D: true,
+		  pieSliceText: 'value'
+        };		
+		
+		var chart7= new google.visualization.PieChart(document.getElementById('chart_div7'));
+        chart7.draw(data7, options7);			
+		
+		
+		/// 10 -- FTDs (count) recent week
+		
+        var data10 = google.visualization.arrayToDataTable([
+          ['Date', 'FTDs #', {type: 'string', role:'annotation'}],
+		  ['20160606',55,55], ['20160607',58,58], ['20160608',46,46], ['20160609',39,39], ['20160610',32,32], ['20160611',23,23], ['20160612',14,14], ['20160613',21,21],         ]);	
+	   
+        var options10 = {
+          title: 'FTDs (count) recent Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#e34352'}},
+          vAxis: {minValue: 0},
+		  colors: ['#e34352']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart10 = new google.visualization.AreaChart(document.getElementById('chart_div10'));
+		chart10.draw(data10, options10);		
+		
+			
+		
+		
+		//// 30 -- FTDs weekly
+		
+        var data30 = google.visualization.arrayToDataTable([
+          ['Week', 'FTDs #', {type: 'string', role:'annotation'}],
+		  ['18',77,77], ['19',72,72], ['20',77,77], ['21',60,60], ['22',138,138], ['23',267,267], ['24',21,21],         ]);	
+
+		var options30 = {
+          title: 'FTDs (count) Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 		  
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']		 
+        };		
+		
+		var chart30= new google.visualization.ColumnChart(document.getElementById('chart_div30'));
+        chart30.draw(data30, options30);
+		
+		
+		
+		//// 31 -- FTDs monthly
+		
+        var data31 = google.visualization.arrayToDataTable([
+          ['Month', 'FTDs #', {type: 'string', role:'annotation'}],
+		  ['12',540,540], ['01',1420,1420], ['02',4903,4903], ['03',2982,2982], ['04',469,469], ['05',331,331], ['06',394,394],         ]);	
+
+		var options31 = {
+          title: 'FTDs (count) Montly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart31 = new google.visualization.ColumnChart(document.getElementById('chart_div31'));
+        chart31.draw(data31, options31);			
+		
+	
+				
+		//// 32 -- registrations yearly
+		
+        var data32 = google.visualization.arrayToDataTable([
+          ['Year', 'FTDs #', {type: 'string', role:'annotation'}],
+		  ['2014',108,108], ['2015',1593,1593], ['2016',10499,10499],         ]);	
+
+		var options32 = {
+          title: 'FTDs (count) Yearly',
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}},          
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart32 = new google.visualization.ColumnChart(document.getElementById('chart_div32'));
+        chart32.draw(data32, options32);
+				
+		
+		// 41 Deposits recent Days
+		
+		var data41 = google.visualization.arrayToDataTable([
+				  ['Date', 'USD', {type: 'string', role: 'annotation'}, 'EUR',  {type: 'string', role: 'annotation'}, 'GBP',  {type: 'string', role: 'annotation'}],
+				  ['20160606',3284,3284,14013,14013,1225,1225], ['20160607',6828,6828,29333,29333,1000,1000], ['20160608',3250,3250,23702,23702,1250,1250], ['20160609',2130,2130,21831,21831,1100,1100], ['20160610',3025,3025,25268,25268,0,0], ['20160611',600,600,6410,6410,200,200], ['20160612',1000,1000,5652,5652,200,200], ['20160613',5500,5500,13336,13336,700,700], 			  ]);
+
+			var options41 = {			  
+			  vAxis: {title: 'Amount'},
+			  hAxis: {title: 'Days'},
+			  seriesType: 'bars',
+			  series: {5: {type: 'line'}}
+			};
+
+			var chart41 = new google.visualization.ComboChart(document.getElementById('chart_div41'));
+			chart41.draw(data41, options41);		
+		
+		// 42 Deposits recent Weeks
+		
+		var data42 = google.visualization.arrayToDataTable([
+				  ['Week', 'USD', {type: 'string', role: 'annotation'}, 'EUR',  {type: 'string', role: 'annotation'}, 'GBP',  {type: 'string', role: 'annotation'}],
+				  ['17',28488,28488,51960,51960,12250,12250], ['18',49188,49188,34991,34991,6564,6564], ['19',116889,116889,18560,18560,23536,23536], ['20',18780,18780,35535,35535,5550,5550], ['21',27434,27434,12666,12666,35250,35250], ['22',36471,36471,56129,56129,2610,2610], ['23',20118,20118,126210,126210,4975,4975], ['24',5500,5500,13336,13336,700,700], 			  ]);
+
+			var options42 = {			  
+			  vAxis: {title: 'Amount'},
+			  hAxis: {title: 'Weeks'},
+			  seriesType: 'bars',
+			  series: {5: {type: 'line'}}
+			};
+
+			var chart42 = new google.visualization.ComboChart(document.getElementById('chart_div42'));
+			chart42.draw(data42, options42);		
+		
+		
+		// 43 Deposits recent Months
+		
+		var data43 = google.visualization.arrayToDataTable([
+				  ['Date', 'USD', {type: 'string', role: 'annotation'}, 'EUR',  {type: 'string', role: 'annotation'}, 'GBP',  {type: 'string', role: 'annotation'}],
+				  ['11',206979,206979,122914,122914,4100,4100], ['12',104362,104362,197433,197433,4917,4917], ['01',221761,221761,345631,345631,25335,25335], ['02',331980,331980,657065,657065,15307,15307], ['03',230348,230348,457166,457166,26171,26171], ['04',148026,148026,333785,333785,25800,25800], ['05',236833,236833,118406,118406,72920,72920], ['06',41196,41196,183228,183228,7215,7215], 			  ]);
+
+			var options43 = {			  
+			  vAxis: {title: 'Amount'},
+			  hAxis: {title: 'Months'},
+			  seriesType: 'bars',
+			  series: {5: {type: 'line'}}
+			};
+
+			var chart43 = new google.visualization.ComboChart(document.getElementById('chart_div43'));
+			chart43.draw(data43, options43);			
+		
+		
+		// 44 Deposits recent Years
+		
+		var data44 = google.visualization.arrayToDataTable([
+				  ['Date', 'USD', {type: 'string', role: 'annotation'}, 'EUR',  {type: 'string', role: 'annotation'}, 'GBP',  {type: 'string', role: 'annotation'}],
+				  ['2014',46710,46710,52828,52828,4102,4102], ['2015',880077,880077,998190,998190,92001,92001], ['2016',1210145,1210145,2095281,2095281,172747,172747], 			  ]);
+
+			var options44 = {			  
+			  vAxis: {title: 'Amount'},
+			  hAxis: {title: 'Years'},
+			  seriesType: 'bars',
+			  series: {5: {type: 'line'}}
+			};
+
+			var chart44 = new google.visualization.ComboChart(document.getElementById('chart_div44'));
+			chart44.draw(data44, options44);	
+
+			
+		
+		
+		/// 80 -- Online Users # recent Hours (sql_80)
+		
+        var data80 = google.visualization.arrayToDataTable([
+          ['Hour', 'Online Users #', {type: 'string', role:'annotation'}],
+		  ['16',10,10], ['17',31,31], ['18',22,22], ['19',25,25], ['20',33,33], ['21',36,36], ['22',32,32], ['23',25,25], ['00',16,16], ['01',15,15], ['02',12,12], ['03',21,21], ['04',28,28], ['05',40,40], ['06',55,55], ['07',82,82], ['08',86,86], ['09',96,96], ['10',73,73], ['11',91,91], ['12',112,112], ['13',100,100], ['14',100,100], ['15',135,135], ['16',106,106],         ]);	
+	   
+        var options80 = {
+          title: 'Online Users # recent Hours',
+          hAxis: {title: 'Hours',  titleTextStyle: {color: '#5c832f'}},
+          vAxis: {minValue: 0},
+		  colors: ['#5c832f']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart80 = new google.visualization.AreaChart(document.getElementById('chart_div80'));
+		chart80.draw(data80, options80);		
+		
+		
+		/// 81 -- Online Users # recent Weeks (sql_81)
+		
+        var data81 = google.visualization.arrayToDataTable([
+          ['Week', 'Online Users #', {type: 'string', role:'annotation'}],
+		  ['20160606',503,503], ['20160607',557,557], ['20160608',541,541], ['20160609',488,488], ['20160610',445,445], ['20160611',342,342], ['20160612',408,408], ['20160613',1168,1168],         ]);	
+	   
+        var options81 = {
+          title: 'Online Users # recent Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#493862'}},
+          vAxis: {minValue: 0},
+		  colors: ['#493862']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart81 = new google.visualization.AreaChart(document.getElementById('chart_div81'));
+		chart81.draw(data81, options81);		
+		
+		
+		
+		//// 83 -- online users weekly
+		
+        var data83 = google.visualization.arrayToDataTable([
+          ['Week', 'Online Users #', {type: 'string', role:'annotation'}],
+		  ['18',2563,2563], ['19',3023,3023], ['20',2805,2805], ['21',2388,2388], ['22',2435,2435], ['23',3284,3284], ['24',1168,1168],         ]);	
+
+		var options83 = {
+          title: 'Online Users # Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']
+        };		
+		
+		var chart83 = new google.visualization.ColumnChart(document.getElementById('chart_div83'));
+        chart83.draw(data83, options83);			
+		
+		
+		
+		//// 84 -- online users monthly
+		
+        var data84 = google.visualization.arrayToDataTable([
+          ['Month', 'Online Users #', {type: 'string', role:'annotation'}],
+		  ['12',7577,7577], ['01',11861,11861], ['02',10476,10476], ['03',14618,14618], ['04',13462,13462], ['05',11898,11898], ['06',6070,6070],         ]);	
+
+		var options84 = {
+          title: 'Online Users # Monthly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart84 = new google.visualization.ColumnChart(document.getElementById('chart_div84'));
+        chart84.draw(data84, options84);		
+		
+		
+		
+		
+		//// 85 -- online users yearly
+		
+        var data85 = google.visualization.arrayToDataTable([
+          ['Year', 'Online Users #', {type: 'string', role:'annotation'}],
+		  ['2012',3321,3321], ['2013',4838,4838], ['2014',7405,7405], ['2015',31496,31496], ['2016',68385,68385],         ]);	
+
+		var options85 = {
+          title: 'Online Users # Yearly',  
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}}, 
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart85 = new google.visualization.ColumnChart(document.getElementById('chart_div85'));
+        chart85.draw(data85, options85);			
+		
+		
+		
+		
+		//// 61 -- Top Countries FTDs # Last Week
+		
+        var data61 = google.visualization.arrayToDataTable([
+          ['Country', 'FTDs #'],
+		  ['Germany',170], ['Italy',15], ['United Kingdo',13], ['France',8], ['Brazil',7],         ]);	
+
+		var options61 = {
+          title: 'Top Countries Week FTDs#',  
+		  hAxis: {title: 'Country'}, 		           
+		  is3D: true,
+		  pieSliceText: 'value'
+        };		
+		
+		var chart61= new google.visualization.PieChart(document.getElementById('chart_div61'));
+        chart61.draw(data61, options61);				
+		
+		
+		
+		
+		
+		//// 62 -- Top Countries FTDs # Last Month
+		
+        var data62 = google.visualization.arrayToDataTable([
+          ['Country', 'FTDs #'],
+		  ['Germany',271], ['Italy',53], ['United Kingdo',39], ['France',24], ['South Africa',21],         ]);	
+
+		var options62 = {
+          title: 'Top Countries Month FTDs#',  
+		  hAxis: {title: 'Country'}, 		           
+		  is3D: true,
+		  pieSliceText: 'value'
+        };		
+		
+		var chart62= new google.visualization.PieChart(document.getElementById('chart_div62'));
+        chart62.draw(data62, options62);
+
+		
+		
+		
+		//// 63 -- Top Countries FTDs # Last Year
+		
+        var data63 = google.visualization.arrayToDataTable([
+          ['Country', 'FTDs #'],
+		  ['France',1373], ['United Kingdo',1134], ['Italy',754], ['United States',527], ['Germany',434],         ]);	
+
+		var options63 = {
+          title: 'Top Countries Year FTDs#',  
+		  hAxis: {title: 'Country'}, 		           
+		  is3D: true,
+		  pieSliceText: 'value'
+        };		
+		
+		var chart63= new google.visualization.PieChart(document.getElementById('chart_div63'));
+        chart63.draw(data63, options63);
+		
+		
+		
+		
+		/// 90 -- Trades # recent Hours
+		
+        var data90 = google.visualization.arrayToDataTable([
+          ['Hour', 'Trades #', {type: 'string', role:'annotation'}],
+		  ['07',152,152], ['08',256,256], ['09',304,304], ['10',210,210], ['11',193,193], ['12',229,229], ['13',546,546], ['14',648,648], ['15',267,267], ['16',197,197],         ]);	
+	   
+        var options90 = {
+          title: 'Trades # recent Hours',
+          hAxis: {title: 'Hours',  titleTextStyle: {color: '#e34352'}},
+          vAxis: {minValue: 0},
+		  colors: ['#e34352']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart90 = new google.visualization.AreaChart(document.getElementById('chart_div90'));
+		chart90.draw(data90, options90);		
+		
+		
+		
+		/// 91 -- Trades # recent Days
+		
+        var data91 = google.visualization.arrayToDataTable([
+          ['Day', 'Trades #', {type: 'string', role:'annotation'}],
+		  ['20160605',226,226], ['20160606',2696,2696], ['20160607',2495,2495], ['20160608',3228,3228], ['20160609',4263,4263], ['20160610',5067,5067], ['20160612',459,459], ['20160613',3720,3720],         ]);	
+	   
+        var options91 = {
+          title: 'Trades # recent Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#1b7eac'}},
+          vAxis: {minValue: 0},
+		  colors: ['#1b7eac']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart91 = new google.visualization.AreaChart(document.getElementById('chart_div91'));
+		chart91.draw(data91, options91);		
+		
+		
+		
+		
+		//// 93 -- Trades weekly
+		
+        var data93 = google.visualization.arrayToDataTable([
+          ['Week', 'Trades #', {type: 'string', role:'annotation'}],
+		  ['20',19590,19590], ['21',11980,11980], ['22',13680,13680], ['23',18208,18208], ['24',3720,3720],         ]);	
+
+		var options93 = {
+          title: 'Trades # Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 		  
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']		 
+        };		
+		
+		var chart93= new google.visualization.ColumnChart(document.getElementById('chart_div93'));
+        chart93.draw(data93, options93);
+		
+		
+		
+		//// 94 -- Trades monthly
+		
+        var data94 = google.visualization.arrayToDataTable([
+          ['Month', 'Trades #', {type: 'string', role:'annotation'}],
+		  ['01',332906,332906], ['02',242021,242021], ['03',374826,374826], ['04',199698,199698], ['05',82487,82487], ['06',31115,31115],         ]);	
+
+		var options94 = {
+          title: 'Trades # Montly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart94 = new google.visualization.ColumnChart(document.getElementById('chart_div94'));
+        chart94.draw(data94, options94);			
+		
+	
+				
+		//// 95 -- Trades yearly
+		
+        var data95 = google.visualization.arrayToDataTable([
+          ['Year', 'Trades #', {type: 'string', role:'annotation'}],
+		  ['2014',6208,6208], ['2015',369250,369250], ['2016',1263053,1263053],         ]);	
+
+		var options95 = {
+          title: 'Trades # Yearly',
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}},          
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart95 = new google.visualization.ColumnChart(document.getElementById('chart_div95'));
+        chart95.draw(data95, options95);		
+		
+		
+		
+		
+		
+		
+		//// 103 -- Trades Volumes USD weekly
+		
+        var data103 = google.visualization.arrayToDataTable([
+          ['Week', 'Trades Vol USD', {type: 'string', role:'annotation'}],
+		  ['20',115793688,115793688], ['21',86630370,86630370], ['22',105976600,105976600], ['23',181246119,181246119], ['24',30391782,30391782],         ]);	
+
+		var options103 = {
+          title: 'Trades Vol USD Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 		  
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']		 
+        };		
+		
+		var chart103= new google.visualization.ColumnChart(document.getElementById('chart_div103'));
+        chart103.draw(data103, options103);
+		
+		
+		
+		//// 104 -- Trades Volumes USD monthly
+		
+        var data104 = google.visualization.arrayToDataTable([
+          ['Month', 'Trades Vol USD', {type: 'string', role:'annotation'}],
+		  ['01',760421752,760421752], ['02',880034356,880034356], ['03',1545837899,1545837899], ['04',865620290,865620290], ['05',481435452,481435452], ['06',284621646,284621646],         ]);	
+
+		var options104 = {
+          title: 'Trades Vol USD Montly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart104 = new google.visualization.ColumnChart(document.getElementById('chart_div104'));
+        chart104.draw(data104, options104);			
+		
+	
+				
+		//// 105 -- Trades Vol USD yearly
+		
+        var data105 = google.visualization.arrayToDataTable([
+          ['Year', 'Trades Vol USD', {type: 'string', role:'annotation'}],
+		  ['2014',0,0], ['2015',693548070,693548070], ['2016',4817971395,4817971395],         ]);	
+
+		var options105 = {
+          title: 'Trades Vol USD Yearly',
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}},          
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart105 = new google.visualization.ColumnChart(document.getElementById('chart_div105'));
+        chart105.draw(data105, options105);			
+		
+		
+
+
+
+
+
+
+		
+		//// 113 -- Trades Profit USD weekly
+		
+        var data113 = google.visualization.arrayToDataTable([
+          ['Week', 'Trades Prof USD', {type: 'string', role:'annotation'}],
+		  ['20',-47551,-47551], ['21',60145,60145], ['22',-14900,-14900], ['23',-28459,-28459], ['24',5374,5374],         ]);	
+
+		var options113 = {
+          title: 'Trades Prof USD Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 		  
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']		 
+        };		
+		
+		var chart113= new google.visualization.ColumnChart(document.getElementById('chart_div113'));
+        chart113.draw(data113, options113);
+		
+		
+		
+		//// 114 -- Trades Profit USD monthly
+		
+        var data114 = google.visualization.arrayToDataTable([
+          ['Month', 'Trades Prof USD', {type: 'string', role:'annotation'}],
+		  ['01',-353554,-353554], ['02',-582344,-582344], ['03',-424984,-424984], ['04',-432915,-432915], ['05',26805,26805], ['06',-39685,-39685],         ]);	
+
+		var options114 = {
+          title: 'Trades Prof USD Montly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart114 = new google.visualization.ColumnChart(document.getElementById('chart_div114'));
+        chart114.draw(data114, options114);			
+		
+	
+				
+		//// 115 -- Trades Profit USD yearly
+		
+        var data115 = google.visualization.arrayToDataTable([
+          ['Year', 'Trades Prof USD', {type: 'string', role:'annotation'}],
+		  ['2014',0,0], ['2015',-54159,-54159], ['2016',-1806678,-1806678],         ]);	
+
+		var options115 = {
+          title: 'Trades Prof USD Yearly',
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}},          
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart115 = new google.visualization.ColumnChart(document.getElementById('chart_div115'));
+        chart115.draw(data115, options115);			
+		
+
+		
+		
+		
+		//// 123 -- Trades Rev USD weekly
+		
+        var data123 = google.visualization.arrayToDataTable([
+          ['Week', 'Trades Rev USD', {type: 'string', role:'annotation'}],
+		  ['20',14616,14616], ['21',12100,12100], ['22',15147,15147], ['23',28134,28134], ['24',3114,3114],         ]);	
+
+		var options123 = {
+          title: 'Trades Rev USD Weekly',  
+		  hAxis: {title: 'Week', titleTextStyle: {color: '#dd8e07'}}, 		  
+          legend: { position: 'none' },
+		  colors: ['#dd8e07']		 
+        };		
+		
+		var chart123= new google.visualization.ColumnChart(document.getElementById('chart_div123'));
+        chart123.draw(data123, options123);
+		
+		
+		
+		//// 124 -- Trades Rev USD monthly
+		
+        var data124 = google.visualization.arrayToDataTable([
+          ['Month', 'Trades Rev USD', {type: 'string', role:'annotation'}],
+		  ['01',139919,139919], ['02',151870,151870], ['03',273160,273160], ['04',118731,118731], ['05',61082,61082], ['06',41472,41472],         ]);	
+
+		var options124 = {
+          title: 'Trades Rev USD Montly',  
+		  hAxis: {title: 'Month', titleTextStyle: {color: '#9dc62d'}}, 
+          legend: { position: 'none' },
+		  colors: ['#9dc62d']
+        };		
+		
+		var chart124 = new google.visualization.ColumnChart(document.getElementById('chart_div124'));
+        chart124.draw(data124, options124);			
+		
+	
+				
+		//// 125 -- Trades Rev USD yearly
+		
+        var data125 = google.visualization.arrayToDataTable([
+          ['Year', 'Trades Rev USD', {type: 'string', role:'annotation'}],
+		  ['2014',0,0], ['2015',141317,141317], ['2016',786234,786234],         ]);	
+
+		var options125 = {
+          title: 'Trades Rev USD Yearly',
+		  hAxis: {title: 'Year', titleTextStyle: {color: '#1b7eac'}},          
+          legend: { position: 'none' },
+		  colors: ['#1b7eac']
+        };		
+		
+		var chart125 = new google.visualization.ColumnChart(document.getElementById('chart_div125'));
+        chart125.draw(data125, options125);			
+				
+		
+		
+		
+		
+		
+		/// 100 -- Trades Vol USD Hours
+		
+        var data100 = google.visualization.arrayToDataTable([
+          ['Hour', 'Vol USD', {type: 'string', role:'annotation'}],
+		  ['07',1074301,1074301], ['08',1538505,1538505], ['09',2560721,2560721], ['10',1701428,1701428], ['11',1072414,1072414], ['12',1298414,1298414], ['13',3518059,3518059], ['14',5720404,5720404], ['15',3562086,3562086], ['16',1649877,1649877],         ]);	
+	   
+        var options100 = {
+          title: 'Trades Vol USD Hours',
+          hAxis: {title: 'Hours',  titleTextStyle: {color: '#e34352'}},
+          vAxis: {minValue: 0},
+		  colors: ['#e34352']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart100 = new google.visualization.AreaChart(document.getElementById('chart_div100'));
+		chart100.draw(data100, options100);		
+		
+		
+		
+		
+		
+		/// 101 -- Trades Vol USD Days
+		
+        var data101 = google.visualization.arrayToDataTable([
+          ['Day', 'Vol USD', {type: 'string', role:'annotation'}],
+		  ['20160605',2141909,2141909], ['20160606',70444183,70444183], ['20160607',19046648,19046648], ['20160608',21291486,21291486], ['20160609',29792860,29792860], ['20160610',37633797,37633797], ['20160612',3037145,3037145], ['20160613',30391782,30391782],         ]);	
+	   
+        var options101 = {
+          title: 'Trades Vol USD Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#1b7eac'}},
+          vAxis: {minValue: 0},
+		  colors: ['#1b7eac']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart101 = new google.visualization.AreaChart(document.getElementById('chart_div101'));
+		chart101.draw(data101, options101);		
+		
+		
+		
+		
+		
+		
+		/// 110 -- Trades Profit USD Hours
+		
+        var data110 = google.visualization.arrayToDataTable([
+          ['Hour', 'Prof USD', {type: 'string', role:'annotation'}],
+		  ['07',530,530], ['08',-604,-604], ['09',3789,3789], ['10',-976,-976], ['11',165,165], ['12',-1657,-1657], ['13',-396,-396], ['14',4557,4557], ['15',-2576,-2576], ['16',1654,1654],         ]);	
+	   
+        var options110 = {
+          title: 'Trades Prof USD Hours',
+          hAxis: {title: 'Hours',  titleTextStyle: {color: '#e34352'}},
+          vAxis: {minValue: 0},
+		  colors: ['#e34352']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart110 = new google.visualization.AreaChart(document.getElementById('chart_div110'));
+		chart110.draw(data110, options110);		
+		
+		
+		
+		
+		
+		/// 111 -- Trades Vol USD Days
+		
+        var data111 = google.visualization.arrayToDataTable([
+          ['Day', 'Prof USD', {type: 'string', role:'annotation'}],
+		  ['20160605',-9530,-9530], ['20160606',2903,2903], ['20160607',-44,-44], ['20160608',-40769,-40769], ['20160609',12798,12798], ['20160610',3643,3643], ['20160612',-6989,-6989], ['20160613',5374,5374],         ]);	
+	   
+        var options111 = {
+          title: 'Trades Prof USD Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#1b7eac'}},
+          vAxis: {minValue: 0},
+		  colors: ['#1b7eac']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart111 = new google.visualization.AreaChart(document.getElementById('chart_div111'));
+		chart111.draw(data111, options111);		
+				
+		
+		
+		
+		
+		
+		/// 120 -- Trades Revenue USD Hours
+		
+        var data120 = google.visualization.arrayToDataTable([
+          ['Hour', 'Rev USD', {type: 'string', role:'annotation'}],
+		  ['07',96,96], ['08',190,190], ['09',372,372], ['10',202,202], ['11',146,146], ['12',98,98], ['13',509,509], ['14',464,464], ['15',157,157], ['16',204,204],         ]);	
+	   
+        var options120 = {
+          title: 'Trades Rev USD Hours',
+          hAxis: {title: 'Hours',  titleTextStyle: {color: '#e34352'}},
+          vAxis: {minValue: 0},
+		  colors: ['#e34352']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart120 = new google.visualization.AreaChart(document.getElementById('chart_div120'));
+		chart120.draw(data120, options120);		
+		
+		
+		
+		
+		
+		/// 121 -- Trades Rev USD Days
+		
+        var data121 = google.visualization.arrayToDataTable([
+          ['Day', 'Rev USD', {type: 'string', role:'annotation'}],
+		  ['20160605',381,381], ['20160606',13425,13425], ['20160607',3046,3046], ['20160608',3320,3320], ['20160609',4075,4075], ['20160610',3695,3695], ['20160612',572,572], ['20160613',3114,3114],         ]);	
+	   
+        var options121 = {
+          title: 'Trades Rev USD Days',
+          hAxis: {title: 'Days',  titleTextStyle: {color: '#1b7eac'}},
+          vAxis: {minValue: 0},
+		  colors: ['#1b7eac']
+        };					   
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart121 = new google.visualization.AreaChart(document.getElementById('chart_div121'));
+		chart121.draw(data121, options121);			
+		
+		
+		
+		
+		
+		
+		/// 500 - YTD Regs # vs Prev. Year
+		
+		var data500 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Regs %', 150]
+        ]);
+		
+		
+		var options500 = {
+          //width: 400, height: 120,
+          redFrom: 0, redTo: 75,
+          yellowFrom:75, yellowTo: 100,
+		  greenFrom: 100, greenTo: 200,
+          minorTicks: 5,
+		  max: 200
+        };
+		
+		var chart500 = new google.visualization.Gauge(document.getElementById('chart_div500'));
+        chart500.draw(data500, options500);
+		
+		
+		
+		/// 501 - YTD FTDs # vs Prev. Year
+		
+		var data501 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['FTDs %', 659]
+        ]);
+		
+		
+		var options501 = {
+          //width: 400, height: 120,
+          redFrom: 0, redTo: 75,
+          yellowFrom:75, yellowTo: 500,
+		  greenFrom: 500, greenTo: 1000,
+          minorTicks: 5,
+		  max: 1000
+        };
+		
+		var chart501 = new google.visualization.Gauge(document.getElementById('chart_div501'));
+        chart501.draw(data501, options501);
+
+		
+		
+		/// 502 - YTD Deposits Amt EUR # vs Prev. Year
+		
+		var data502 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Dep %', 179]
+        ]);
+		
+		
+		var options502 = {
+          //width: 400, height: 120,
+          redFrom: 0, redTo: 75,
+          yellowFrom:75, yellowTo: 100,
+		  greenFrom: 100, greenTo: 300,
+          minorTicks: 5,
+		  max: 300
+        };
+		
+		var chart502 = new google.visualization.Gauge(document.getElementById('chart_div502'));
+        chart502.draw(data502, options502);		
+		
+		
+		
+		
+		/// 503 -- YTD Trades Volumes USD # vs Prev. Year (%)
+		
+		var data503 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['TVol %', 695]
+        ]);
+		
+		
+		var options503 = {
+          //width: 400, height: 120,
+          redFrom: 0, redTo: 75,
+          yellowFrom:75, yellowTo: 400,
+		  greenFrom: 400, greenTo: 1000,
+          minorTicks: 5,
+		  max: 1000
+        };
+		
+		var chart503 = new google.visualization.Gauge(document.getElementById('chart_div503'));
+        chart503.draw(data503, options503);	
+		
+		
+		
+		
+		/// 504 -- YTD Trades Profit USD # vs Prev. Year (%)
+		
+		var data504 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['TProf %', 3336]
+        ]);
+		
+		
+		var options504 = {
+          //width: 400, height: 120,
+          redFrom: 0, redTo: 75,
+          yellowFrom:75, yellowTo: 400,
+		  greenFrom: 400, greenTo: 4000,
+          minorTicks: 5,
+		  max: 4000
+        };
+		
+		var chart504 = new google.visualization.Gauge(document.getElementById('chart_div504'));
+        chart504.draw(data504, options504);	
+
+		
+		
+		
+		/// 505 -- YTD Trades Rev USD # vs Prev. Year (%)
+		
+		var data505 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['TRev %', 556]
+        ]);
+		
+		
+		var options505 = {
+          //width: 400, height: 120,
+          redFrom: 0, redTo: 75,
+          yellowFrom:75, yellowTo: 400,
+		  greenFrom: 400, greenTo: 2000,
+          minorTicks: 5,
+		  max: 2000
+        };
+		
+		var chart505 = new google.visualization.Gauge(document.getElementById('chart_div505'));
+        chart505.draw(data505, options505);	
+		
+		
+		
+	  }
+
+	</script>  
+  
+</head>
+<body class="application">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Dima | Data Digest | Last Updated: 13-Jun-2020 16:44:50 (UTC)</a>
+      </div>
+	  <!--
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+	  -->
+    </div>
+  </div>
+
+  <div class="container-fluid">
+  
+    <h4><i class="fa fa-pie-chart">&nbsp;</i>Basic KPIs</h4>
+	
+	<div class="row">
+	
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            YTD Regs # vs Prev. Year (%)
+          </div>
+          <div class="chart-stage" >
+            <div id="chart_div500" align='center'></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> YTD Regs # <b>59076</b>; Prev Year Regs # <b>39228</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            YTD FTDs # vs Prev. Year (%)
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div501" align='center'></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> YTD FTDs # <b>10499</b>; Prev. Year FTDs # <b>1593</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            YTD Deposits Amt EUR vs Prev. Year (%)
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div502" align='center'></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> YTD DepEUR <b>3379597</b>; Prev. YDepEUR <b>1889499</b>
+          </div>
+        </div>
+      </div>	  
+	
+	
+	</div>
+	
+	
+	<div class="row">
+	
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            YTD Trades Vol USD # vs Prev. Year (%)
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div503" align='center'></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> YTD TVolUSD <b>4817971395</b>; Prev. Year <b>693548070</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            YTD Trades Profit USD vs Prev. Year (%)
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div504" align='center'></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> YTD Trades Profit USD <b>-1806678</b>; Prev. Year <b>-54159</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            YTD Trades Rev USD vs Prev. Year (%)
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div505" align='center'></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> YTD Trades Rev USD <b>786234</b>; Prev. Year <b>141317</b>
+          </div>
+        </div>
+      </div>	  
+	
+	
+	</div>
+	
+  
+	<h4><i class="fa fa-users">&nbsp;</i>Online Users</h4>
+  
+    <div class="row">
+	
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Online Users # recent Hours
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div80"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Hours
+          </div>
+        </div>
+      </div>
+	 
+	</div>
+	
+	<div class="row">
+ 
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Online Users # recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div81"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+
+    <div class="row">	  
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Online Users # recent Weeks
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div83"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Online Users # recent Months
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div84"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Online Users # recent Years
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div85"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+    </div>  	
+  
+    <h4><i class="fa fa-chevron-down">&nbsp;</i>Registrations</h4>
+  
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Registrations # recent Hours
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div0"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Hours
+          </div>
+        </div>
+      </div>
+
+    </div>  
+  
+  
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Registrations # recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Registrations # Weekly
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div4"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>	  
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Registrations # Monthly
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div3"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Registrations # Yearly
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div2"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+	</div>	
+	
+   <h4><i class="fa fa-map">&nbsp;</i>Countries</h4>
+	
+   <div class="row">
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Top Countries Regs # Last Week
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div7"></div>
+          </div>
+          <div class="chart-notes">
+            Top Countries Regs # Last Week
+          </div>
+        </div>
+      </div>	  
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Top Countries Regs # Last Month
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div6"></div>
+          </div>
+          <div class="chart-notes">
+            Top Countries Regs # Last Month
+          </div>
+        </div>
+      </div>
+	  
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Top Countries Regs # Last Year
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div5"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Top Countries Regs # Last Year
+          </div>
+        </div>
+      </div>	  
+
+	</div>	
+
+
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Top Countries FTDs # Last Week
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div61"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Top Countries FTDs # Last Week
+          </div>
+        </div>
+      </div>
+
+ 
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Top Countries FTDs # Last Month
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div62"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Top Countries FTDs # Last Month
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Top Countries FTDs # Last Year
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div63"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Top Countries FTDs # Last Year
+          </div>
+        </div>
+      </div>
+
+    </div>		
+	
+	
+	<h4><i class="fa fa-credit-card">&nbsp;</i>FTDs</h4>
+	
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            FTDs # recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div10"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>  	
+	
+	
+	
+    <div class="row">
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            FTDs # Weekly
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div30"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>	  
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            FTDs # Monthly
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div31"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            FTDs # Yearly
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div32"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+	</div>		
+	
+	
+	<h4><i class="fa fa-money">&nbsp;</i>Deposits</h4>
+	
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Deposits recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div41"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Deposits recent Days
+          </div>
+        </div>
+      </div>
+
+	</div> 	  
+	  
+	<div class="row"> 
+	  
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Deposits recent Weeks
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div42"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Deposits recent Weeks
+          </div>
+        </div>
+      </div>
+
+    </div> 		
+	
+	
+	
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Deposits recent Months
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div43"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Deposits recent Months
+          </div>
+        </div>
+      </div>
+	 
+	</div>
+	
+	<div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Deposits recent Years
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div44"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Deposits recent Years
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+	<h4><i class="fa fa-signal">&nbsp;</i>Trades</h4>
+	
+	
+	<!--- num of trades --->
+	
+    <div class="row">
+	
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades # recent Hours
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div90"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Hours
+          </div>
+        </div>
+      </div>
+	 
+	</div>
+	
+	<div class="row">
+ 
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades # recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div91"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+
+    <div class="row">	  
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades # recent Weeks
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div93"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades # recent Months
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div94"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades # recent Years
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div95"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+    </div>  		
+	
+	
+	<!--- closed volume usd --->
+	
+	
+    <div class="row">
+	
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades Volume USD recent Hours
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div100"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Hours
+          </div>
+        </div>
+      </div>
+	 
+	</div>
+	
+	<div class="row">
+ 
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades Volume USD recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div101"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+
+    <div class="row">	  
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades Volume USD recent Weeks
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div103"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades Volume USD recent Months
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div104"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Trades Volume USD recent Years
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div105"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+    </div>  		
+	
+	
+	<!---  profit usd ---->
+	
+    <div class="row">
+	
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Profit USD recent Hours
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div110"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Hours
+          </div>
+        </div>
+      </div>
+	 
+	</div>
+	
+	<div class="row">
+ 
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Profit USD recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div111"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+
+    <div class="row">	  
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Profit USD recent Weeks
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div113"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Profit USD recent Months
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div114"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Profit USD recent Years
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div115"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+    </div>  			
+	
+	
+	<!---- revenue usd ---->
+	
+   <div class="row">
+	
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Revenue USD recent Hours
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div120"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Hours
+          </div>
+        </div>
+      </div>
+	 
+	</div>
+	
+	<div class="row">
+ 
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Revenue USD recent Days
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div121"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Days
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+
+    <div class="row">	  
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Revenue USD recent Weeks
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div123"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Weeks
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Revenue USD recent Months
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div124"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Months
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Revenue USD recent Years
+          </div>
+          <div class="chart-stage">
+            <div id="chart_div125"></div>
+          </div>
+          <div class="chart-notes">
+            <i class="fa fa-clock-o"></i> Recent Years
+          </div>
+        </div>
+      </div>	  
+
+    </div>  			
+	
+	
+
+    <hr>
+
+    <p class="small text-muted">Built by Dmitry</p>
+
+  </div>
+
+  <script type="text/javascript" src="assets/lib/holderjs/holder.js"></script>
+  <script>
+    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
+  </script>
+
+</body>
+</html>
