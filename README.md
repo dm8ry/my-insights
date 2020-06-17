@@ -10,3 +10,9 @@
 
 ![Screenshot 5](https://github.com/dmrsoft/my_insights/blob/master/screenshots/Screenshot_5.png)
 
+![Screenshot 6](https://github.com/dmrsoft/my_insights/blob/master/screenshots/Screenshot_6.png)
+
+![Screenshot 7](https://github.com/dmrsoft/my_insights/blob/master/screenshots/Screenshot_7.png)
+
+![Screenshot 8](https://github.com/dmrsoft/my_insights/blob/master/screenshots/Screenshot_8.png)
+
